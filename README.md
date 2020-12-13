@@ -159,11 +159,6 @@ $urlpatterns = [
   Now a simple `Hello, World` web Api is created.
 
 
-## Documentation
-
-  - Documentation : https://unicframework.github.io/docs
-
-
 ## License
 
   [MIT License](https://github.com/unicframework/unic/blob/main/LICENSE)
