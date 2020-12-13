@@ -24,8 +24,13 @@ $this->validator->rules([
     'email' => true,
     'callback' => function() {
       //Convert email to lowercase
-      $_POST['email'] = strtolower($_POST['email']);
-    }
+      $this->request->post->email = strtolower($this->request->post->email);
+    },
+    'rules' => [
+      //Set your own custom rules
+      'available' => is_available($this->request->post->email),
+      'active' => is_active($this->request->post->email)
+    ]
   ],
   'password' => [
     'required' => true,
@@ -33,13 +38,13 @@ $this->validator->rules([
     'maxlength' => 15,
     'callback' => function() {
       //Encrypt password
-      $_POST['password'] = base64_encode($_POST['password']);
+      $this->request->post->password = base64_encode($this->request->post->password);
     }
   ]
 ]);
 
 //Validate form data
-if($this->validator->validate($_POST)) {
+if($this->validator->validate($this->request->post)) {
   //Ok data is valid
 } else {
   //Display validation errors
@@ -80,10 +85,8 @@ if($this->validator->validate($_POST)) {
 | not_in         | array    | match data in given array. |
 | equal          | mixed    | it will match data with given data. |
 | not_equal      | mixed    | it will match data with given data. |
-| is_true        | boolean  | is_true is used to validate true values. it will throw an error when it will find true value. |
-| is_false       | boolean  | is_false is used to validate false values. it will throw an error when it will find false value. |
 | callback       | function | pass callback function. callback function is called during validation of field. |
-
+| rules          | array    | set custom rules. custom rules are set of key value pairs. if any key has false value then it will throw an error. |
 
   We can set rules for data validation.
 
@@ -104,8 +107,13 @@ $this->validator->rules([
     'email' => true,
     'callback' => function() {
       //Convert email to lowercase
-      $_POST['email'] = strtolower($_POST['email']);
-    }
+      $this->request->post->email = strtolower($this->request->post->email);
+    },
+    'rules' => [
+      //Set your own custom rules
+      'available' => is_available($this->request->post->email),
+      'active' => is_active($this->request->post->email)
+    ]
   ],
   'password' => [
     'required' => true,
@@ -137,7 +145,11 @@ $this->validator->messages([
   ],
   'email' => [
     'required' => 'Please enter email address.',
-    'email' => 'Please enter valid email address.'
+    'email' => 'Please enter valid email address.',
+    'rules' => [
+      'available' => 'Email is already registered.',
+      'active' => 'Your account has been blocked.'
+    ]
   ]
 ]);
 ```
