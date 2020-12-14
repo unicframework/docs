@@ -29,7 +29,7 @@ $this->validator->rules([
     'rules' => [
       //Set your own custom rules
       'available' => is_available($this->request->post->email),
-      'active' => is_active($this->request->post->email)
+      'blocked' => !is_blocked($this->request->post->email)
     ]
   ],
   'password' => [
@@ -112,7 +112,7 @@ $this->validator->rules([
     'rules' => [
       //Set your own custom rules
       'available' => is_available($this->request->post->email),
-      'active' => is_active($this->request->post->email)
+      'blocked' => !is_blocked($this->request->post->email)
     ]
   ],
   'password' => [
@@ -148,7 +148,7 @@ $this->validator->messages([
     'email' => 'Please enter valid email address.',
     'rules' => [
       'available' => 'Email is already registered.',
-      'active' => 'Your account has been blocked.'
+      'blocked' => 'Your account has been blocked.'
     ]
   ]
 ]);
