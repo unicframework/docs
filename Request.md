@@ -35,29 +35,33 @@
 
   - `uri` : Get URI of current request with query string. for example /home, /news?id=2 etc.
   - `url` : Get absolute URL of current request.
-  - `path` : path of current request without query string. for example /home, /news, /blog etc.
+  - `path` : Path of current request without query string. for example /home, /news, /blog etc.
+
+### Request Body
+
+  - `body` : Get body of current request.
 
 ### Request Data
 
-  - `get` : get all GET request data.
-  - `post` : get all POST request data.
-  - `put` : get all PUT request data.
-  - `delete` : get all DELETE request data.
-  - `patch` : get all PATCH request data.
-  - `head` : get all HEAD request data.
-  - `options` : get all OPTIONS request data.
-  - `connect` : get all CONNECT request data.
-  - `trace` : get all TRACE request data.
-  - `copy` : get all COPY request data.
-  - `link` : get all LINK request data.
-  - `unlink` : get all UNLINK request data.
-  - `lock` : get all LOCK request data.
-  - `unlock` : get all UNLOCK request data.
-  - `purge` : get all PURGE request data.
-  - `propfind` : get all PROPFIND request data.
-  - `view` : get all VIEW request data.
-  - `any` : get all request data.
-  - `files` : get all FILES request data.
+  - `get` : Get all GET request data.
+  - `post` : Get all POST request data.
+  - `put` : Get all PUT request data.
+  - `delete` : Get all DELETE request data.
+  - `patch` : Get all PATCH request data.
+  - `head` : Get all HEAD request data.
+  - `options` : Get all OPTIONS request data.
+  - `connect` : Get all CONNECT request data.
+  - `trace` : Get all TRACE request data.
+  - `copy` : Get all COPY request data.
+  - `link` : Get all LINK request data.
+  - `unlink` : Get all UNLINK request data.
+  - `lock` : Get all LOCK request data.
+  - `unlock` : Get all UNLOCK request data.
+  - `purge` : Get all PURGE request data.
+  - `propfind` : Get all PROPFIND request data.
+  - `view` : Get all VIEW request data.
+  - `any` : Get all request data. for example GET, POST, PUT etc.
+  - `files` : Get all uploaded FILES data.
 
 ### Request Information
 
