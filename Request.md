@@ -33,11 +33,9 @@
 
 ### Path Information
 
-  - `uri` : The URI which was given in order to access this page; for instance, '/index.html'.
-  - `request_uri` : The URI which was given in order to access this page; for instance, '/index.html'.
-  - `url` : absolute URL of current request.
-  - `path` : path of current request.
-  - `path_info` : path of current request with query string.
+  - `uri` : Get URI of current request with query string. for example /home, /news?id=2 etc.
+  - `url` : Get absolute URL of current request.
+  - `path` : path of current request without query string. for example /home, /news, /blog etc.
 
 ### Request Data
 
@@ -88,7 +86,7 @@
 ### User Information
 
   - `remote_addr` : The IP address from which the user is viewing the current page.
-  - `is_referred` : True if user is redirected from somewhere.
+  - `is_referred` : True if user is redirected from somewhere otherwise false.
 
 ### Example
 
@@ -107,6 +105,7 @@ class view extends Views {
     //Get post method data
     echo $this->request->post->name;
     echo $this->request->post->email;
+
     return $this->render('home');
   }
 }
