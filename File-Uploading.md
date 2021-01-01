@@ -2,7 +2,7 @@
 
   Unic framework provide simplest way to upload files on the server.
 
-### Files Information
+### Get Files Information
 
   Uploaded files information stored in the `$this->request->files` object.
 
@@ -14,7 +14,7 @@
 
 ### Example
 
-  - Create a HTML form
+  - Create a HTML form for file uploading.
 
 ```html
 <form action="/upload" method="post" enctype="multipart/form-data">
