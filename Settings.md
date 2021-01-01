@@ -16,7 +16,7 @@ $debug = TRUE;
   Set `$debug = FALSE` to hide all error's in production.
 
 
-#### Libraries Configuration
+#### Allow Hosts
 
   Allow hosts to access you web application.
 
@@ -33,10 +33,11 @@ $allowed_hosts = ['localhost', 'example.com'];
 
 ```php
 $libraries = [
-  //install system library
+  //Install system library
   'system.security',
-  //install user defined library
+  //Install user defined library
   'app/library/my_library',
+  //Set alias name
   'app/library/my_another_libraray' => 'mylib',
 ];
 ```
@@ -106,7 +107,7 @@ $templates = [
 
 #### Urls Settings
 
-  Ignore trailing slashes
+  Ignore trailing slashes.
 
 ```php
 $ignore_trailing_slash = FALSE;
