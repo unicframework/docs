@@ -1,7 +1,5 @@
 ## Introduction
 
-### What is unic framework
-
 <p align="center">
   <img src="unic-logo.jpg" width="400px" alt="Unic Logo">
 </p>
@@ -39,7 +37,7 @@ The View is used to execute the business logic and interact with a model to carr
 
 ### Directory Structure of Unic
 
-Unic web framework has very simple and clean directory structure.
+Unic framework has very simple and clean directory structure.
 
 ```
 unic
@@ -61,13 +59,16 @@ unic
 In unic framework you can create your own directory structure.
 
 #### System directory
-  system directory is main system directory of unic framework, where all the system files are stored.
+  System directory is main system directory of unic framework, where all the system files are stored.
 
 #### Application directory
-  application is main project directory that contains all your apps and project files (urls, view, model, etc)
+  Application is main project directory that contains all your apps files urls, view, model, etc.
 
 #### App directory
-  app is demo application of your project. your can create new apps like login, admin, news, blogs or any app that you want. your app directory contains view, model and urls files.
+  App is demo application of your project. your can create new apps like login, admin, news, blogs or any app that you want. Your app directory contains view, model and urls files.
 
 #### Templates directory
-  templates directory contains all your HTML template files.
+  Templates directory contains all your HTML template files.
+
+#### Static directory
+  Static directory contains all static files of web application like js, css, images etc.
