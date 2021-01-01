@@ -1,15 +1,17 @@
 ## Session
 
-  sessions provide a way to store information about the user across multiple requests.
+  A sessions provide way to store information about the user across multiple requests.
 
-  **Create a New Session**
+
+### Create a New Session
 
 ```php
 //Create new session
 $this->session->set('email', 'example@gmail.com');
 ```
 
-  **Get Session Data**
+
+### Get Session Data
 
 ```php
 //Get session data
@@ -19,7 +21,7 @@ $this->session->get('email');
 ```
 
 
-  **Check Session Data**
+### Check Session Data
 
 ```php
 //Get session exists or not
@@ -31,7 +33,7 @@ if($this->session->has('email')) {
 ```
 
 
-  **Delete Session Data**
+### Delete Session Data
 
 ```php
 //Delete a session data
@@ -41,7 +43,7 @@ $this->session->delete('email');
   It will delete only session variable data.
 
 
-  **Delete Session**
+### Delete Session
 
 ```php
 //Delete all session
