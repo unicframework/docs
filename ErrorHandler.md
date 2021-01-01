@@ -8,8 +8,14 @@
 
   1. Create your ErrorHandler view.
 ```php
+//Page not found error handler
 function page_not_found() {
   return $this->response('404 Page Not Found', 404);
+}
+
+//Account blocked error handler
+function blocked_error() {
+  return $this->response('Your account has been blocked!', 500);
 }
 ```
 
@@ -23,7 +29,7 @@ $errorhandlers = [
 ];
 ```
 
-  it will redirect all 404 errors to your page_not_found view.
+  It will redirect all `404` and `blocked` errors to your `page_not_found` and `blocled_error` views.
 
   ***Note : The ErrorHandler array, it must be inside the main urls file only.***
 
