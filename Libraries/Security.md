@@ -1,6 +1,8 @@
 ## Security
 
-  Security library provide basic security feature to the web application. unic framework provide CSRF, XSS and SQL Injection protection.
+  Security library provide basic security feature to the web application.
+
+  Unic framework provide CSRF, XSS and SQL Injection protection.
 
 ### SQL Injection
 
@@ -34,7 +36,9 @@ class view extends Views {
 
 ### CSRF
 
-  Cross site request forgery (CSRF), also known as XSRF, Sea Surf or Session Riding attack. CSRF is a type of malicious exploit of a website where unauthorized commands are transmitted from a user that the web application trusts.
+  Cross site request forgery (CSRF), also known as XSRF, Sea Surf or Session Riding attack.
+
+  CSRF is a type of malicious exploit of a website where unauthorized commands are transmitted from a user that the web application trusts.
 
   **Add CSRF Token :**
 
@@ -42,7 +46,7 @@ class view extends Views {
 
 ```html
 <form method="POST">
-  <?php $this->security->csrf_token(); ?>
+  <?= $this->security->csrf_token(); ?>
   <input type="text" name="username" palceholder="Username">
   <input type="password" name="password" placeholder="Password">
   <input type="submit" name="submit" value="Login">
@@ -58,12 +62,12 @@ $.ajax({
   type: "POST",
   url: "/login",
   data: {
-    csrf_token: "<?php echo $this->security->get_csrf_token(); ?>",
-    username: "user_name",
+    csrf_token: "<?= $this->security->get_csrf_token(); ?>",
+    username: "username",
     password: "password"
   },
   success: function(data){
-     //success response data
+     //Success response data
   }
 });
 ```
@@ -77,7 +81,7 @@ class view extends Views {
   }
 
   function login() {
-    //Form Submit
+    //Check post request
     if($this->request->is_post) {
       //Verify CSRF Token
       if($this->security->csrf_verify()) {
