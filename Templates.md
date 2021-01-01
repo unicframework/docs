@@ -1,6 +1,8 @@
 ## Templates
 
-  The Template is a presentation layer which handles User Interface part. Unic Framework by default store all the template in templates directory, but you can change the template directory in settings. go to settings file add your template directory path in template array.
+  The Template is a presentation layer which handles user interface part of web application.
+
+  Unic framework by default store all the template in templates directory, but you can change the template directory in settings.
 
 #### Create a HTML template
 
@@ -17,11 +19,11 @@
 </body>
 </html>
 ```
- this is a simple hello world template file.
+ This is a simple `Hello World` template file.
 
 #### How to render templates
 
-  render your templates.
+  Render your templates in views.
 
 ```php
 class view extends Views {
@@ -38,7 +40,7 @@ class view extends Views {
 
 #### How to pass data in templates
 
-  we can pass any data in templates using array.
+  We can pass any data in templates using array.
 
 ```php
 class view extends Views {
@@ -59,18 +61,18 @@ class view extends Views {
 }
 ```
 
-#### How to access Data in templates
+#### How to access data in templates
 
 ```html
 <!DOCTYPE>
 <html>
 <head>
-  <title><?php echo $title; ?></title>
+  <title><?= $title; ?></title>
 </head>
 <body>
-  <?php echo $title; ?>
-  <?php echo $author; ?>
-  <?php echo $date; ?>
+  <?= $title; ?>
+  <?= $author; ?>
+  <?= $date; ?>
 </body>
 </html>
 ```
