@@ -11,7 +11,7 @@
 ```php
 $debug = TRUE;
 ```
-  Set `$debug = TRUE;` to show all error's.
+  Set `$debug = TRUE` to show all error's.
 
   Set `$debug = FALSE` to hide all error's in production.
 
@@ -24,7 +24,7 @@ $debug = TRUE;
 $allowed_hosts = ['localhost', 'example.com'];
 ```
 
-  leave `allowed_hosts` empty to allow all hosts.
+  Leave `allowed_hosts` empty to allow all hosts.
 
 
 #### Libraries Configuration
@@ -45,7 +45,7 @@ $libraries = [
   
 #### Middlewares Configuration
 
-  set your global middlewares.
+  Set your global middlewares.
 
 ```php
 $middlewares = [
@@ -68,7 +68,7 @@ $db['db']= [
 ];
 ```
 
-  Database Configuration :
+  **Database Configuration :**
 
   - **dsn** : The full DSN string describe a connection to the database. by default you can leav it will blank.
   - **hostname** : The hostname of your database server.
