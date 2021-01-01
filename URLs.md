@@ -9,12 +9,12 @@
 ```php
 //Include views
 require_once 'view.php';
-require_once 'product_view.php';
+require_once 'product.php';
 
 $urlpatterns = [
-  '/' => 'app_view.home',
+  '/' => 'view.home',
   '/product/{id}' => 'product.data',
-  '/about' => 'app_view.about',
+  '/about' => 'view.about',
 ];
 ```
 
@@ -29,7 +29,7 @@ $urlpatterns = [
 /product/3
 ```
 
-  here the product id is dynamic it can be change on every request.
+  Here the product id is dynamic it can be change on every request.
 
 ```php
 $urlpatterns = [
@@ -37,7 +37,7 @@ $urlpatterns = [
 ];
 ```
 
-  To access slug pattern data create a function product and pass parameter. now we can access the id of product and render the product data.
+  Here we can access product id with `$this->request->params` object.
 
 ```php
 class view extends Views {
@@ -46,37 +46,26 @@ class view extends Views {
   }
 
   function product() {
+    //Get product id
     $id = $this->request->params->id;
     return $this->response('Product : '.$id);
   }
 }
 ```
 
-  Unic does not support any int, str, float type but you can use them in slug. {slug} support all the int, float, and string as well as Wildcards.
+  Unic does not support any int, str, float type but you can use them in slug. `{slug}` support all the int, float, and string as well as wildcards.
 
-### Regular Expressions
-
-  Unic allows to define URLs routing rules using regular expressions. Any valid regular expression is allowed.
-
-```php
-'/product/([0-9]+)' => 'view.product',
-```
-
-  this example is similar to :
-
-```
-/product/1
-/product/2
-/product/3
-```
 
 ### Include URLs
 
-  Include your application URLs file in main URLs file.
+  Include your app URLs file in main URLs file.
 
 ```php
 $urlpatterns = [
-  '/' => urls('app/urls.php'),
+  //Blog app urls
+  '/' => urls('blog/urls.php'),
+
+  //Product app urls
   '/product' => urls('product/urls.php'),
 ];
 ```
