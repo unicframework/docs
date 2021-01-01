@@ -1,6 +1,6 @@
 ## File Uploading
 
-  Unic Framework provide simplest way to upload files on the server.
+  Unic framework provide simplest way to upload files on the server.
 
 ### Files Information
 
@@ -14,7 +14,7 @@
 
 ### Example
 
-  - Create HTML form
+  - Create a HTML form
 
 ```html
 <form action="/upload" method="post" enctype="multipart/form-data">
@@ -22,7 +22,7 @@
   <input type="submit" value="Upload Image" name="submit">
 </form>
 ```
-  - Upload files.
+  - Upload files on server.
 
 ```php
 class view extends Views {
@@ -30,14 +30,14 @@ class view extends Views {
     parent::__construct();
   }
 
-  function file_upload() {
-    //source path.
+  function home() {
+    //File source path
     $source = $this->request->files->image['tmp_name'];
 
-    //destination path.
-    $destination = '/img/'.$this->request->files->image['name'];
+    //File destination path
+    $destination = BASEPATH.'/application/app/static/img/'.$this->request->files->image['name'];
 
-    //upload files
+    //Upload files
     if($this->request->files->upload($source, $destination)) {
       return $this->response('File uploaded');
     } else {
