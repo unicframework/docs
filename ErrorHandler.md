@@ -8,14 +8,20 @@
 
   1. Create your ErrorHandler view.
 ```php
-//Page not found error handler
-function page_not_found() {
-  return $this->response('404 Page Not Found', 404);
-}
+class view extends Views {
+  function __construct() {
+    parent::__construct();
+  }
 
-//Account blocked error handler
-function blocked_error() {
-  return $this->response('Your account has been blocked!', 500);
+  //Page not found error handler
+  function page_not_found() {
+    return $this->response('404 Page Not Found', 404);
+  }
+
+  //Account blocked error handler
+  function blocked_error() {
+    return $this->response('Your account has been blocked!', 500);
+  }
 }
 ```
 
@@ -24,8 +30,8 @@ function blocked_error() {
 
 ```php
 $errorhandlers = [
-  '404' => 'view_name.page_not_found',
-  'blocked' => 'view_name.blocked_error',
+  '404' => 'view.page_not_found',
+  'blocked' => 'view.blocked_error',
 ];
 ```
 
