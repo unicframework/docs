@@ -4,7 +4,7 @@
 
 ### Create Middleware
 
-  Let's create a `middleware.php` file inside your `app/` directory, you can name it anything. you middleware class name should be match with file name.
+  Let's create a `middleware.php` file inside your `app` directory, you can name it anything. Your middleware class name and filename must be the same.
 
 ```php
 class middleware extends Middlewares {
@@ -18,11 +18,11 @@ class middleware extends Middlewares {
 }
 ```
 
-  This a example of `hello, world` middleware. this middleware add a `hello` variable in request.
+  This is a example of `Hello, World` middleware. This middleware will add a `hello` variable in request object.
 
 ### Global Middleware
 
-  Go to your `settings.php` file and add your middleware in middlewares.
+  A global middleware execute on every request. Go to application `settings.php` file and add middleware in middlewares array.
 
 ```php
 //Install your middlewares
@@ -31,29 +31,30 @@ $middlewares = [
 ];
 ```
 
-  you can set your middleware as global middleware and local middleware. a global middleware execute on every request.
-
 ### Local Middleware
 
-  You can set your local middleware in `urls.php` file.
+  A local middlewares runs only when a specific view (Routes) is called. We can set local middleware in `urls.php` file.
 
 ```php
 $urlpatterns = [
   '/' => 'view.home',
-  '/hello' => ['view' => 'view.hello', 'middleware' => 'app/middleware.hello'],
+  //Local middleware
+  '/hello' => [
+    'view' => 'view.hello',
+    'middleware' => 'app/middleware.hello'
+  ],
 ];
 ```
-
-  local middlewares runs only when a specific view (Routes) called.
 
 
 ### Group Middleware
 
-  You can set your group middleware in `urls.php` file.
+  We can set group middleware in `urls.php` file.
 
 ```php
 $urlpatterns = [
   '/' => 'view.home',
+  //Group middlewares
   [
     'view' => [
       '/blog',
@@ -66,5 +67,3 @@ $urlpatterns = [
   ],
 ];
 ```
-
-You can create a group of local middlewares for any route.
