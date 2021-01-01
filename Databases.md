@@ -1,6 +1,6 @@
 ## Databases
 
-  Unic framework support fast and secure database connection.
+  Unic framework support pdo, mysqli, sqlite database driver's.
 
 #### Database Configuration
 
@@ -19,15 +19,13 @@ $db['db']= [
 ];
 ```
 
-  **Database Configuration :**
-
   - **dsn** : The full DSN string describe a connection to the database. by default you can leav it will blank.
   - **hostname** : The hostname of your database server.
   - **port** : The port of your database server.
   - **username** : The username used to connect to the database.
   - **password** : The password used to connect to the database.
   - **database** : The name of the database you want to connect to.
-  - **driver** : The name of the database driver (mysqli,pdo,sqlite3).
+  - **driver** : The name of the database driver (mysqli, pdo, sqlite3).
   - **char_set** : The character set used in communicating with the database.
 
 
@@ -55,19 +53,18 @@ class model Models {
 
 #### Database Query
 
-  Unic framework support very simple databse query.
+  Unic framework support simple database query.
 
 ```php
 class blog_model extends Models {
   function __construct() {
-    //database connection
+    //Initialize database connection
     $this->connect('blog_db');
   }
 
   function get_data() {
-    //select data from blog_db
+    //Get data from db
     $result = $this->blog_db->query('select * from blog');
-    $this->blog_db->close();
     return $result;
   }
 }
