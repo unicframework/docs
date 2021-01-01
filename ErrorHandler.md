@@ -1,10 +1,10 @@
 ## ErrorHandler
 
-  Handle Errors like 404 (page not found), 500 (Internal Server Error), etc.
+  Error Handler's used to handle errors like 404 (page not found), 500 (Internal Server Error), etc.
 
-  Create you custom ErrorHandler to handle any server errors.
+  Create your custom ErrorHandler to handle any server error.
 
-  **Example :**
+### Create custom errorhandler
 
   1. Create your ErrorHandler view.
 ```php
@@ -19,9 +19,33 @@ function page_not_found() {
 ```php
 $errorhandlers = [
   '404' => 'view_name.page_not_found',
+  'blocked' => 'view_name.blocked_error',
 ];
 ```
 
   it will redirect all 404 errors to your page_not_found view.
 
-  ***Note : The ErrorHandler array, it must be in the main urls file only.***
+  ***Note : The ErrorHandler array, it must be inside the main urls file only.***
+
+### Raise custom errors
+
+  Unic framework allows us to raise custom errors.
+
+```php
+class view extends Views {
+  function __construct() {
+    parent::__construct();
+  }
+
+  function home() {
+    //Raise 404 page not found error
+    $this->raise('404');
+
+    //Raise 500 page not found error
+    $this->raise('500');
+
+    //Raise custom error
+    $this->raise('blocked');
+  }
+}
+```
