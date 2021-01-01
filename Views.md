@@ -1,25 +1,27 @@
 ## Views
 
   Views are classes that render templates, communicate with models and contain all the business logic of web application.
-  generally all the views are written in a views.php file that is in your application directory or apps directory, but you can create your own views file in Unic framework.
+
+  Generally all the views are written in a `views.php` file that is inside your application directory or apps directory, but you can create your own views file in unic framework.
 
 ### Create a view
 
-  Let’s write the first view. open the `app/view.php` file and put the following PHP code in it:
+  Let’s write the first view. Open the `app/view.php` file and put the following PHP code in it:
 
 ```php
 class view extends Views {
   function __construct() {
     parent::__construct();
   }
-  //Send response
+  //Home view
   function home() {
+    //Send response
     return $this->response('Hello, World !!');
   }
 }
 ```
 
-  a simple hello world view is created, to render views map your view to URLs.
+  A simple `Hello World` view is created, to render views map your view to URLs.
 
 
 ### Render Html templates
@@ -41,7 +43,7 @@ class view extends Views {
 
 ### Render Files
 
-  Render files like (CSS, JS, Images, etc.).
+  Render files like (CSS, JS, Images, etc.) to browser.
 
 ```php
 class view extends Views {
@@ -50,7 +52,7 @@ class view extends Views {
   }
 
   function home() {
-    //Render files.
+    //Render files to browser.
     return $this->render_file('cat.jpg');
   }
 }
@@ -59,7 +61,7 @@ class view extends Views {
 
 ### Send Files
 
-  Send files like (CSS, JS, Images, audio, video etc.) to the client.
+  Send downloadable file like (css, js, images, audio, video etc.) to the client browser.
 
 ```php
 class view extends Views {
@@ -68,18 +70,16 @@ class view extends Views {
   }
 
   function home() {
-    //Send files.
+    //Send downloadable files to client browser.
     return $this->send_file('cat.jpg');
   }
 }
 ```
 
-  `send_file()` send downloadable files to the client browser.
 
+### Send String Response
 
-### Response data
-
-  **Response simple string data :**
+  **Response a simple string :**
 
 ```php
 class view extends Views {
@@ -94,7 +94,7 @@ class view extends Views {
 }
 ```
 
-  **Response simple string data with http response code :**
+  **Response simple string with http response code :**
 
 ```php
 class view extends Views {
@@ -103,15 +103,13 @@ class view extends Views {
   }
 
   function home() {
-    //Response string data with http response code
+    //Response string with http response code
     return $this->response('404 Page not found !!', 404);
   }
 }
 ```
 
-### Json Response
-
-  Response json data for api response :
+### Send Json Response
 
 ```php
 class view extends Views {
@@ -121,14 +119,12 @@ class view extends Views {
 
   function home() {
     //Response json data
-    return $this->response_json(array('data' => 'hello world'));
+    return $this->response_json(['data' => 'hello world']);
   }
 }
 ```
 
 ### Set Http Response code
-
-  Set Http Response status code :
 
 ```php
 class view extends Views {
@@ -137,8 +133,10 @@ class view extends Views {
   }
 
   function home() {
-    //Response http response code
-    return $this->response_code(404);
+    //Set http response code
+    $this->response_code(404);
+    //Send response
+    return $this->response('Page Not Found');
   }
 }
 ```
@@ -165,11 +163,11 @@ class view extends Views {
 
 ### Use Models
 
-  Create a model blog and include models file in views file.
+  Create a model `blog` and include models file in views.
 
 ```php
 //Include models
-require_once 'model.php';
+require_once 'blog_model.php';
 
 class view extends Views {
   private $blog;
@@ -181,8 +179,11 @@ class view extends Views {
     $this->blog = new blog_model();
   }
 
-  function demo() {
-    return $this->response($test->blog->get_data());
+  function home() {
+    //Get blogs data
+    $blog = $this->blog->get();
+    //Response blog data
+    return $this->response($blog);
   }
 }
 ```
