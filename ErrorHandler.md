@@ -7,6 +7,7 @@
 ### Create custom errorhandler
 
   1. Create your ErrorHandler view.
+
 ```php
 class view extends Views {
   function __construct() {
