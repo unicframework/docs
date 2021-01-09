@@ -1,6 +1,6 @@
 ## URLs
 
-  Unic allows to create simple and clean urls without any limitation.
+  Unic allows to create simple and clean urls routing without any limitation.
 
 ### Map URLs with Views
 
