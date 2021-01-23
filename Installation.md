@@ -6,7 +6,6 @@
 
   - [Download](https://github.com/unicframework/unic/archive/main.zip) the Unic files.
   - Unzip the package.
-  - Upload all the Unic files and directories (application, system, .htaccess, index.php) on the server.
 
 ```
 public_html
@@ -16,7 +15,7 @@ public_html
 └── index.php
 ```
 
-  That's it, in the Unic framework there is nothing to configure and setup. It's always ready to go.
+  That's it, in the unic framework there is nothing to configure and setup. It's always ready to go.
 
 ### For Linux
 
@@ -31,7 +30,7 @@ cd unic
 php -S localhost:8080 index.php
 ```
 
-  That's it, in the Unic web framework there is nothing to configure and setup. it's always ready to go.
+  That's it, in the unic web framework there is nothing to configure and setup. It's always ready to go.
 
 ### Install with composer
 
