@@ -37,13 +37,11 @@ class view extends Views {
   private $blog;
 
   function __construct() {
-    parent::__construct();
-
     //Create model object
     $this->blog = new blog_model();
   }
 
-  function home() {
+  function home(Request $req) {
     //Get blog data from model
     $blog = $this->blog->get();
     //Response data
