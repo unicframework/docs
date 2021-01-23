@@ -41,13 +41,9 @@ $urlpatterns = [
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function product() {
+  function product(Request $req) {
     //Get product id
-    $id = $this->request->params->id;
+    $id = $req->params->id;
     return $this->response('Product : '.$id);
   }
 }
