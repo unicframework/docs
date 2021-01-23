@@ -25,7 +25,7 @@ $static_url = '/';
   <title>cat image</title>
 </head>
 <body>
-  <img src='<?= static_url('/img/cat.jpg'); ?>' alt='cat image'/>
+  <img src="<?= static_url('/img/cat.jpg'); ?>" alt="cat image"/>
 </body>
 </html>
 ```
