@@ -6,14 +6,14 @@
 
 ```php
 //Static files directory
-$static_dir = '/application/static';
+$static_dir = '/static';
 ```
 
   - Set your static URL in settings file.
 
 ```php
 //Static files URL
-$static_url = '/static';
+$static_url = '/';
 ```
 
   - Use static files in templates.
@@ -25,12 +25,9 @@ $static_url = '/static';
   <title>cat image</title>
 </head>
 <body>
-  <img src='<?= $this->static_url.'/img/cat.jpg'; ?>' alt='cat image'/>
-  <!-- or -->
-  <img src='<?= $this->static('/img/cat.jpg'); ?>' alt='cat image'/>
+  <img src='<?= static_url('/img/cat.jpg'); ?>' alt='cat image'/>
 </body>
 </html>
 ```
 
-  - `$this->static_url` variable store app static directory base url.
-  - `$this->static()` function return full URL of given file.
+  - `static_url()` function return full URL of given file.
