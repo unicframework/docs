@@ -22,9 +22,8 @@ Unic web framework follows the MVT (Model-View-Template) architectural pattern.
 - [Session](Session.md)
 - [Cookie](Cookie.md)
 - [Request](Request.md)
-- [Library](Library.md)
 - [Databases](Databases.md)
-- [Security](Libraries/Security.md)
+- [Security](Security.md)
 - [ErrorHandler](ErrorHandler.md)
 - [Settings](Settings.md)
 - [How to Deploy](How-to-Deploy.md)
@@ -40,12 +39,8 @@ Unic web framework follows the MVT (Model-View-Template) architectural pattern.
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
   //Home view
-  function home() {
+  function home(Request $req) {
     //Send response
     return $this->response('Hello, World !!');
   }
@@ -80,12 +75,8 @@ $urlpatterns = [
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
   //Home view
-  function home() {
+  function home(Request $req) {
     $data = [
       'status' => true,
       'data' => 'Hello, World',
