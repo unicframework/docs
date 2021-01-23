@@ -73,7 +73,7 @@ In unic framework you can create your own directory structure.
   Application is main project directory that contains all your apps files urls, view, model, etc.
 
 #### App directory
-  App directory contains model, view and urls file of your web application. your can create new apps like login, admin, news, blogs or any app that you want. Your app directory contains view, model and urls files.
+  App directory contains model, view and urls file of your web application. your can create new apps like login, admin, news, blogs or any app that you want.
 
 #### Templates directory
   Templates directory contains all your HTML template files.
