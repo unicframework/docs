@@ -44,13 +44,18 @@ unic
 ├── application
 │   ├── app
 │   │   ├── model.php
-│   │   ├── static
-│   │   ├── template
-│   │   ├── urls.php
-│   │   └── view.php
+│   │   ├── view.php
+│   │   └── urls.php
+│   ├── my_app
+│   │   ├── model.php
+│   │   ├── view.php
+│   │   └── urls.php
+│   ├── template
+│   ├── static
 │   ├── settings.php
 │   └── urls.php
 ├── system
+├── vendor
 ├── composer.json
 ├── .htaccess
 └── index.php
@@ -61,11 +66,14 @@ In unic framework you can create your own directory structure.
 #### System directory
   System directory is main system directory of unic framework, where all the system files are stored.
 
+#### Vendor directory
+  All third party libraries installed in your vendor directory.
+
 #### Application directory
   Application is main project directory that contains all your apps files urls, view, model, etc.
 
 #### App directory
-  App is demo application of your project. your can create new apps like login, admin, news, blogs or any app that you want. Your app directory contains view, model and urls files.
+  App directory contains model, view and urls file of your web application. your can create new apps like login, admin, news, blogs or any app that you want. Your app directory contains view, model and urls files.
 
 #### Templates directory
   Templates directory contains all your HTML template files.
