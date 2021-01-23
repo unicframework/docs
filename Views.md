@@ -2,7 +2,7 @@
 
   Views are classes that render templates, communicate with models and contain all the business logic of web application.
 
-  Generally all the views are written in a `views.php` file that is inside your application directory or apps directory, but you can create your own views file in unic framework.
+  Generally all the views are written in a `view.php` file that is inside your application directory or apps directory, but you can create your own views file in unic framework.
 
 ### Create a view
 
@@ -10,13 +10,14 @@
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
   //Home view
-  function home() {
+  function home(Request $req) {
     //Send response
     return $this->response('Hello, World !!');
+  }
+  //About us view
+  function about(Request $req) {
+    return $this->response('About Us');
   }
 }
 ```
@@ -30,11 +31,7 @@ class view extends Views {
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Render HTML templats
     return $this->render('home');
   }
@@ -47,11 +44,7 @@ class view extends Views {
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Render files to browser.
     return $this->render_file('cat.jpg');
   }
@@ -65,11 +58,7 @@ class view extends Views {
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Send downloadable files to client browser.
     return $this->send_file('cat.jpg');
   }
@@ -77,17 +66,13 @@ class view extends Views {
 ```
 
 
-### Send String Response
+### Send Response
 
-  **Response a simple string :**
+  **Response a simple text :**
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Response string data
     return $this->response('Hello, World!');
   }
@@ -98,11 +83,7 @@ class view extends Views {
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Response string with http response code
     return $this->response('404 Page not found !!', 404);
   }
@@ -113,11 +94,7 @@ class view extends Views {
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Response json data
     return $this->response_json(['data' => 'hello world']);
   }
@@ -128,11 +105,7 @@ class view extends Views {
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Set http response code
     $this->response_code(404);
     //Send response
@@ -147,11 +120,7 @@ class view extends Views {
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Set response header
     $this->header('Content-Type: application/json');
 
@@ -173,13 +142,11 @@ class view extends Views {
   private $blog;
 
   function __construct() {
-    parent::__construct();
-
     //Create model object
     $this->blog = new blog_model();
   }
 
-  function home() {
+  function home(Request $req) {
     //Get blogs data
     $blog = $this->blog->get();
     //Response blog data
