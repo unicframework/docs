@@ -44,11 +44,7 @@ class view extends Views {
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Data
     $blog = array(
       'title' => 'this is title',
@@ -70,9 +66,9 @@ class view extends Views {
   <title><?= $title; ?></title>
 </head>
 <body>
-  <?= $title; ?>
-  <?= $author; ?>
-  <?= $date; ?>
+  <h1><?= $title; ?></h1>
+  <h1><?= $author; ?></h1>
+  <h1><?= $date; ?></h1>
 </body>
 </html>
 ```
