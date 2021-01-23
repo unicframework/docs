@@ -36,14 +36,14 @@ $db['db']= [
 ```php
 class model Models {
   function blog() {
-    //initialize database
+    //Initialize database
     $this->connect('db');
     $this->connect('blog_db');
 
     //OR
     $this->connect('db', 'blog_db');
 
-    //close database connection
+    //Close database connection
     $this->db->close();
     $this->blog_db->close();
   }
