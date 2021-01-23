@@ -7,7 +7,7 @@
 
 ```php
 //Create new session
-$this->session->set('email', 'example@gmail.com');
+$req->session->set('email', 'example@gmail.com');
 ```
 
 
@@ -15,9 +15,9 @@ $this->session->set('email', 'example@gmail.com');
 
 ```php
 //Get session data
-$this->session->email;
+$req->session->email;
 //OR
-$this->session->get('email');
+$req->session->get('email');
 ```
 
 
@@ -25,7 +25,7 @@ $this->session->get('email');
 
 ```php
 //Get session exists or not
-if($this->session->has('email')) {
+if($req->session->has('email')) {
   //Session data exists
 } else {
   //Session data not exists
@@ -37,7 +37,7 @@ if($this->session->has('email')) {
 
 ```php
 //Delete a session data
-$this->session->delete('email');
+$req->session->delete('email');
 ```
 
   It will delete only session variable data.
@@ -47,7 +47,7 @@ $this->session->delete('email');
 
 ```php
 //Delete all session
-$this->session->destroy();
+$req->session->destroy();
 ```
 
   It will delete all session data.
