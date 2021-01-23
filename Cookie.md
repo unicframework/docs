@@ -9,7 +9,7 @@
 
 ```php
 //Create new cookie
-$this->cookie->set('email', 'example@gmail.com', time()+(60*30), '/');
+$req->cookie->set('email', 'example@gmail.com', time()+(60*30), '/');
 ```
 
 
@@ -17,16 +17,16 @@ $this->cookie->set('email', 'example@gmail.com', time()+(60*30), '/');
 
 ```php
 //Get cookie data
-$this->cookie->email;
+$req->cookie->email;
 //OR
-$thie->cookie->get('email');
+$req->cookie->get('email');
 ```
 
 ### Check Cookie Data
 
 ```php
 //Check cookie exists or not
-if($thie->cookie->has('email')) {
+if($req->cookie->has('email')) {
   //Cookie exists
 } else {
   //Cookie not exists
@@ -38,5 +38,5 @@ if($thie->cookie->has('email')) {
 
 ```php
 //Delete cookie
-$this->cookie->delete('email');
+$req->cookie->delete('email');
 ```
