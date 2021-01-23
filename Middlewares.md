@@ -8,12 +8,8 @@
 
 ```php
 class middleware extends Middlewares {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function hello() {
-    $this->request->hello = 'Hello, World!';
+  function hello(Request $req) {
+    $req->hello = 'Hello, World!';
   }
 }
 ```
