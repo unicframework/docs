@@ -18,18 +18,14 @@
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function blog() {
+  function blog(Request $req) {
     //XSS Clean
-    $data = $this->security->xss_clean($blog_data);
+    $data = xss_clean($blog_data);
     return $this->response($data);
   }
 }
 ```
-  Use `$this->security->xss_clean()` to avoid xss attack.
+  Use `xss_clean()` to avoid xss attack.
 
 
 #### CSRF
@@ -42,7 +38,7 @@ class view extends Views {
 
 ```html
 <form method="POST">
-  <?php $this->security->csrf_token(); ?>
+  <?= csrf_token(); ?>
   <input type="text" name="username" palceholder="Username">
   <input type="password" name="password" placeholder="Password">
   <input type="submit" name="submit" value="Login">
@@ -58,7 +54,7 @@ $.ajax({
   type: "POST",
   url: "/login",
   data: {
-    carf_token: "<?php echo $this->security->get_csrf_token(); ?>",
+    carf_token: "<?= get_csrf_token(); ?>",
     username: "user_name",
     password: "password"
   },
@@ -72,18 +68,14 @@ $.ajax({
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function login() {
+  function login(Request $req) {
     //Form Submit
-    if($this->request->is_post) {
+    if($req->is_post) {
       //Verify CSRF Token
-      if($this->security->csrf_verify()) {
+      if(csrf_verify()) {
         //Valid CSRF Token
-        $username = $this->request->post->username;
-        $password = $this->request->post->password;
+        $username = $req->post->username;
+        $password = $req->post->password;
       } else {
         //Invalid CSRF Token
       }
