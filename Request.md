@@ -62,9 +62,8 @@
   - `view` : Get all VIEW request data.
   - `any` : Get all request data. for example GET, POST, PUT etc.
   - `files` : Get all uploaded FILES data.
-
-### Request Information
-
+  - `session` : Manage sessions.
+  - `cookie` : Manage all cookies.
   - `is_secure` : TRUE if the current request is https.
   - `is_ajax` : TRUE if the current request is made by ajax.
   - `is_get` : TRUE if the current request is GET.
@@ -96,19 +95,15 @@
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Check request method is post or not
-    if($this->request->is_post) {
+    if($req->is_post) {
       //Do something
     }
 
     //Get post method data
-    echo $this->request->post->name;
-    echo $this->request->post->email;
+    echo $req->post->name;
+    echo $req->post->email;
 
     return $this->render('home');
   }
