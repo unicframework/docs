@@ -10,17 +10,13 @@
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
   //Page not found error handler
-  function page_not_found() {
+  function page_not_found(Request $req) {
     return $this->response('404 Page Not Found', 404);
   }
 
   //Account blocked error handler
-  function blocked_error() {
+  function blocked_error(Request $req) {
     return $this->response('Your account has been blocked!', 500);
   }
 }
@@ -46,19 +42,15 @@ $errorhandlers = [
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Raise 404 page not found error
-    $this->raise('404');
+    raise('404');
 
     //Raise 500 page not found error
-    $this->raise('500');
+    raise('500');
 
     //Raise custom error
-    $this->raise('blocked');
+    raise('blocked');
   }
 }
 ```
