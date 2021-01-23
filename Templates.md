@@ -27,11 +27,7 @@
 
 ```php
 class view extends Views {
-  function __construct() {
-    parent::__construct();
-  }
-
-  function home() {
+  function home(Request $req) {
     //Render html templates
     return $this->render('home');
   }
