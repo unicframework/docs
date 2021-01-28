@@ -34,7 +34,7 @@ $db['db']= [
   Configure your database settings and initialize database connection.
 
 ```php
-class model Models {
+class model extends Models {
   function blog() {
     //Initialize database
     $this->connect('db');
