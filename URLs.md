@@ -39,10 +39,10 @@ We can use http router to create routes.
 
 ```php
 use Unic\App;
-use Unic\Http\Router;
+use Unic\Router\HttpRouter;
 
 $app = new App();
-$router = new Router();
+$router = new HttpRouter();
 
 $router->get('/', function($req, $res, $next) {
   $res->send("Ok");
