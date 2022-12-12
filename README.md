@@ -7,6 +7,12 @@
 Unic is a high performance, open source web application framework.
 Unic framework is fast, minimal and unopinionated web framework inspired by express.
 
+## Features
+  - Fast and Powerful.
+  - Extremely Light Weight.
+  - Minimal and unopinionated.
+  - Fast routing and middlewares.
+
 ## User Guide
 
 - [Installation](Installation.md)
