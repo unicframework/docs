@@ -1,67 +1,56 @@
-## URLs
+## Routing
 
-  Unic allows to create simple and clean urls routing without any limitation.
+  Unic framework provide very simple routing.
 
-### Map URLs with Views
-
-  Let's create URL and map to views. open `app/urls.php` file and put the following code in it:
+  Let's create routes in unic framework.
 
 ```php
-//Include views
-require_once 'view.php';
-require_once 'product.php';
+use Unic\App;
 
-$urlpatterns = [
-  '/' => 'view.home',
-  '/product/{id}' => 'product.data',
-  '/about' => 'view.about',
-];
+$app->get('/', function($req, $res, $next) {
+  $res->send("Ok");
+});
+
+$app->post('/', function($req, $res, $next) {
+  $res->send("Ok");
+});
+
+$app->put('/', function($req, $res, $next) {
+  $res->send("Ok");
+});
+
+$app->delete('/', function($req, $res, $next) {
+  $res->send("Ok");
+});
+
+// Group routes
+$app->use('/blog', function($router) {
+  $router->get('/', function($req, $res, $next) {
+    $res->send("Ok");
+  });
+
+  $router->post('/', function($req, $res, $next) {
+    $res->send("Ok");
+  });
+});
 ```
 
-### URL Patterns and slug
-
-  Unic framework allows to create custom urls patterns.
-
-  Example :
-```
-/product/1
-/product/2
-/product/3
-```
-
-  Here the product id is dynamic it can be change on every request.
+We can use http router to create routes.
 
 ```php
-$urlpatterns = [
-  '/product/{id}' => 'view.product',
-];
-```
+use Unic\App;
+use Unic\Http\Router;
 
-  Here we can access product id with `$this->request->params` object.
+$app = new App();
+$router = new Router();
 
-```php
-class view extends Views {
-  function product(Request $req) {
-    //Get product id
-    $id = $req->params->id;
-    return $this->response('Product : '.$id);
-  }
-}
-```
+$router->get('/', function($req, $res, $next) {
+  $res->send("Ok");
+});
 
-  Unic does not support any int, str, float type but you can use them in slug. `{slug}` support all the int, float, and string as well as wildcards.
+$router->post('/', function($req, $res, $next) {
+  $res->send("Ok");
+});
 
-
-### Include URLs
-
-  Include your app URLs file in main URLs file.
-
-```php
-$urlpatterns = [
-  //Blog app urls
-  '/' => urls('blog/urls.php'),
-
-  //Product app urls
-  '/product' => urls('product/urls.php'),
-];
+$app->use($router);
 ```
