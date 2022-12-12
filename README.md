@@ -13,11 +13,8 @@ Unic framework is fast, minimal and unopinionated web framework inspired by expr
 - [Routing](Routing.md)
 - [Middlewares](Middlewares.md)
 - [Static files](Static-files.md)
-- [File Uploading](File-Uploading.md)
 - [Session](Session.md)
 - [Cookie](Cookie.md)
-- [Request](Request.md)
-- [Response](Response.md)
 
 ## Simple Example
 
