@@ -11,7 +11,7 @@ Unic framework is fast, minimal and unopinionated web framework inspired by expr
   - Fast and Powerful.
   - Extremely Light Weight.
   - Minimal and unopinionated.
-  - Fast routing.
+  - Simple routing.
   - Middlewares.
 
 ## User Guide
