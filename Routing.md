@@ -32,7 +32,7 @@ $app->all('/blog/{name}', function($req, $res) {
 });
 
 // Group routes
-$app->use('/blog', function($router) {
+$app->group('/blog', function($router) {
   $router->get('/', function($req, $res) {
     $res->send("Ok");
   });
@@ -56,9 +56,9 @@ $router->get('/', function($req, $res) {
   $res->send("Ok");
 });
 
-$router->post('/', function($req, $res) {
-  $res->send("Ok");
+$router->post('/{name}', function($req, $res) {
+  $res->send($req->params->name);
 });
 
-$app->use($router);
+$app->use('/blog', $router);
 ```
