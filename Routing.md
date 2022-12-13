@@ -7,29 +7,37 @@
 ```php
 use Unic\App;
 
-$app->get('/', function($req, $res, $next) {
+$app->get('/', function($req, $res) {
   $res->send("Ok");
 });
 
-$app->post('/', function($req, $res, $next) {
+$app->post('/', function($req, $res) {
   $res->send("Ok");
 });
 
-$app->put('/', function($req, $res, $next) {
+$app->put('/', function($req, $res) {
   $res->send("Ok");
 });
 
-$app->delete('/', function($req, $res, $next) {
+$app->delete('/', function($req, $res) {
   $res->send("Ok");
+});
+
+$app->any(['get', 'post'], function($req, $res) {
+  $res->send('Ok');
+});
+
+$app->all('/blog/{name}', function($req, $res) {
+  $res->send($req->params->name);
 });
 
 // Group routes
 $app->use('/blog', function($router) {
-  $router->get('/', function($req, $res, $next) {
+  $router->get('/', function($req, $res) {
     $res->send("Ok");
   });
 
-  $router->post('/', function($req, $res, $next) {
+  $router->post('/', function($req, $res) {
     $res->send("Ok");
   });
 });
@@ -44,11 +52,11 @@ use Unic\Router\HttpRouter;
 $app = new App();
 $router = new HttpRouter();
 
-$router->get('/', function($req, $res, $next) {
+$router->get('/', function($req, $res) {
   $res->send("Ok");
 });
 
-$router->post('/', function($req, $res, $next) {
+$router->post('/', function($req, $res) {
   $res->send("Ok");
 });
 
