@@ -23,7 +23,7 @@ $app->delete('/', function($req, $res) {
   $res->send("Ok");
 });
 
-$app->any(['get', 'post'], function($req, $res) {
+$app->any(['get', 'post'], '/', function($req, $res) {
   $res->send('Ok');
 });
 
