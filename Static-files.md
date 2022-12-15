@@ -23,4 +23,4 @@ Generate static files url in templates.
 </html>
 ```
 
-  - `asset()` function return full URL of given file.
+The `asset()` function return full URL for the given static files.
