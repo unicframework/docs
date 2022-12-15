@@ -4,23 +4,21 @@
 
   Cookie is created at server side and saved to client browser. Each time when client sends request to the server, cookie is embedded with request.
 
-
-### Create a New Cookie
+Create a new cookie:
 
 ```php
 // Create new cookie
 $req->cookies->set('email', 'example@gmail.com', time()+(60*30), '/');
 ```
 
-
-### Get Cookie Data
+Get the cookie data:
 
 ```php
 // Get cookie data
 $req->cookies->get('email');
 ```
 
-### Check Cookie Data
+Check cookie data exists or not:
 
 ```php
 // Check cookie exists or not
@@ -31,8 +29,7 @@ if($req->cookies->has('email')) {
 }
 ```
 
-
-### Delete Cookie
+Delete the cookie:
 
 ```php
 // Delete cookie
