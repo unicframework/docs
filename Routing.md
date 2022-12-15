@@ -15,7 +15,7 @@ Where:
 - `PATH` is a path or an endpoint on the server.
 - `HANDLER` is the function executed when the route is matched.
 
-## Examples
+## Route Methods
 
 A simple get route, which return `Hello, World!` as homepage.
 ```php
@@ -52,28 +52,33 @@ $app->any(['get', 'post'], '/', function($req, $res) {
 });
 ```
 
-Respond to all http methods from `route(/)':
+Respond to all http methods from `route(/)`:
 ```php
 $app->all('/', function($req, $res) {
   $res->send("{$req->method} request on (/) homepage');
 });
 ```
 
-Group routes:
+## Group Routes
+
+Group all routes in single prefix.
+
 ```php
 // Group routes
 $app->group('/blog', function($router) {
   $router->get('/', function($req, $res) {
-    $res->send("Ok");
+    $res->send('/blog');
   });
 
-  $router->post('/', function($req, $res) {
-    $res->send("Ok");
+  $router->post('/create', function($req, $res) {
+    $res->send('/blog/create');
   });
 });
 ```
 
-Create routes using http router:
+## Http Router
+
+Create routes using HttpRouter:
 
 ```php
 use Unic\App;
@@ -83,7 +88,7 @@ $app = new App();
 $router = new HttpRouter();
 
 $router->get('/', function($req, $res) {
-  $res->send("Ok");
+  $res->send('Ok');
 });
 
 $router->post('/{name}', function($req, $res) {
