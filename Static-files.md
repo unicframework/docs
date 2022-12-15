@@ -1,8 +1,6 @@
 ## Static files
 
-  Websites need some static files, these static files are js, css, images etc. Unic framework help us to manage these static files.
-
-  - Set your static files directory in unic.
+  Websites need some static files like images, js and css etc, to server these static files use the `static('URL', 'DIR_PATH')` method to set the static directory path and url.
 
 ```php
 use Unic\App;
@@ -11,7 +9,7 @@ $app = new App();
 $app->static('/public', base_path('/public'));
 ```
 
-  - Use static files urls in templates.
+Generate static files url in templates.
 
 ```html
 <!DOCTYPE>
