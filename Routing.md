@@ -48,17 +48,27 @@ $app->delete('/', function($req, $res) {
 A simple any get or post route for `route(/)`:
 ```php
 $app->any(['get', 'post'], '/', function($req, $res) {
-  $res->send("{$req->method} request on (/) homepage');
+  $res->send("{$req->method} request on (/) homepage");
 });
 ```
 
 Respond to all http methods from `route(/)`:
 ```php
 $app->all('/', function($req, $res) {
-  $res->send("{$req->method} request on (/) homepage');
+  $res->send("{$req->method} request on (/) homepage");
 });
 ```
 
+Unic framework support wide range of http methods like get, post, put, delete, patch, options, head, lock, merge, purge, trace, unlock etc.
+
+## Route parameters
+
+Route parameters are named URL segments that are used to capture the values specified at their position in the URL. 
+```php
+$app->get('/hello/{name}', function($req, $res) {
+  $res->send("Hello, {$req->params->name}");
+});
+```
 ## Group Routes
 
 Group all routes in single prefix.
@@ -91,8 +101,8 @@ $router->get('/', function($req, $res) {
   $res->send('Ok');
 });
 
-$router->post('/{name}', function($req, $res) {
-  $res->send($req->params->name);
+$router->post('/create', function($req, $res) {
+  $res->send('Ok');
 });
 
 $app->use('/blog', $router);
