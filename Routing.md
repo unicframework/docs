@@ -69,6 +69,21 @@ $app->get('/hello/{name}', function($req, $res) {
   $res->send("Hello, {$req->params->name}");
 });
 ```
+## Named Routes
+
+Named routes are used to generate the URLs for route by using unique name. We can specify a name for a route by chaining the name method on the route definition.
+```php
+$app->get('/dashboard', function($req, $res) {
+  $res->send("Hello, {$req->params->name}");
+})->name('home');
+```
+Route name should be unique for each route.
+
+Generate url for route using named route.
+```html
+<a href="<?= route('home') ?>">Home Page</a>
+```
+
 ## Group Routes
 
 Group all routes in single prefix.
