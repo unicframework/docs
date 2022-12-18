@@ -56,7 +56,18 @@ $app->get('/', function($req, $res, $next) {
 
 ```php
 $app->use(function($err, $req, $res, $next) {
-  $res->status(500)->send('Internal Server Error');
+  $res->send('Internal Server Error', 500);
 });
 ```
 
+  Unic framework automatically catche error and call error-handling middlewares, but you can manually call error-handling middleware. If we pass error as an argument in `$next()` function, it will skip all middlewares and only calls error-handling middlewares.
+
+```php
+$app->get('/', function($req, $res) {
+  $next('error');
+});
+
+$app->use(function($err, $req, $res, $next) {
+  $res->send('Internal Server Error', 500);
+});
+```
