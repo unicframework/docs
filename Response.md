@@ -125,6 +125,6 @@ $app->get('/', function($req, $res) {
 });
 
 $app->get('/', function($req, $res) {
-  $res->redirect('http://example.com', 305);
+  $res->redirect('http://example.com', 302);
 });
 ```
