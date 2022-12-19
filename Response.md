@@ -114,3 +114,17 @@ $app->get('/', function($req, $res) {
   $res->sendFile('/cat-image.png', 'not-cat-image.png');
 });
 ```
+
+## Redirect
+
+Let's redirect to another url.
+
+```php
+$app->get('/', function($req, $res) {
+  $res->redirect('http://example.com');
+});
+
+$app->get('/', function($req, $res) {
+  $res->redirect('http://example.com', 305);
+});
+```
