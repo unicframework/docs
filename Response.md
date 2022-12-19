@@ -64,13 +64,39 @@ $app->get('/', function($req, $res) {
 });
 ```
 
+## Remove Header
+
+Let's remove http header from the response.
+
+```php
+$app->get('/', function($req, $res) {
+  $res->removeHeader('Content-Type', 'text/html')->send('Hello, World!');
+});
+
+$app->get('/', function($req, $res) {
+  $res->removeHeader([
+    'Content-Type' => 'text/html'
+  ])->send('Hello, World!');
+});
+
+$app->get('/', function($req, $res) {
+  $res->removeHeader('Content-Type', 'text/html');
+  $res->send('Hello, World!');
+});
+```
+
 ## File Response
 
 Let's send file as a response.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->sendFile('/cat-image.png');
+  $res->file('/cat-image.png');
+});
+
+$app->get('/', function($req, $res) {
+  // Set file mime type
+  $res->file('/cat-image.png', 'image/png');
 });
 ```
 
@@ -80,6 +106,11 @@ Let's download file from response.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->download('/cat-image.png');
+  $res->sendFile('/cat-image.png');
+});
+
+$app->get('/', function($req, $res) {
+  // Set custom file name
+  $res->sendFile('/cat-image.png', 'not-cat-image.png');
 });
 ```
