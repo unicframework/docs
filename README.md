@@ -20,6 +20,7 @@ Unic is flexible and provide lots of HTTP methods to create APIs quickly.
 - [Installation](Installation.md)
 - [Routing](Routing.md)
 - [Middlewares](Middlewares.md)
+- [Response](Response.md)
 - [Static files](Static-files.md)
 - [Session](Session.md)
 - [Cookie](Cookie.md)
