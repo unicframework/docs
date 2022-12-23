@@ -23,9 +23,9 @@ Check cookie data exists or not:
 ```php
 // Check cookie exists or not
 if($req->cookies->has('email')) {
-  // Cookie exists
+    // Cookie exists
 } else {
-  // Cookie not exists
+    // Cookie not exists
 }
 ```
 
