@@ -12,7 +12,7 @@ Let's set the view engine:
 $app->set('view_engine', 'twig');
 ```
 
-Now let's create a view inside the views directory:
+Now let's create a view file `index.twig` inside the views directory:
 ```html
 <!DOCTYPE html>
 <html>
