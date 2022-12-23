@@ -21,9 +21,9 @@ Check session data exists or not:
 ```php
 // Get session exists or not
 if($req->sessions->has('email')) {
-  // Session data exists
+    // Session data exists
 } else {
-  // Session data not exists
+    // Session data not exists
 }
 ```
 
