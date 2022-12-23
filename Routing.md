@@ -20,42 +20,42 @@ Where:
 A simple get route, which return `Hello, World!` as homepage.
 ```php
 $app->get('/', function($req, $res) {
-  $res->send('Hello, World!');
+    $res->send('Hello, World!');
 });
 ```
 
 A simple post route for `route(/)`:
 ```php
 $app->post('/', function($req, $res) {
-  $res->send('POST request on (/) homepage');
+    $res->send('POST request on (/) homepage');
 });
 ```
 
 A simple put route for `route(/)`:
 ```php
 $app->put('/', function($req, $res) {
-  $res->send('PUT request on (/) homepage');
+    $res->send('PUT request on (/) homepage');
 });
 ```
 
 A simple delete route for `route(/)`:
 ```php
 $app->delete('/', function($req, $res) {
-  $res->send('DELETE request on (/) homepage');
+    $res->send('DELETE request on (/) homepage');
 });
 ```
 
 A simple any get or post route for `route(/)`:
 ```php
 $app->any(['get', 'post'], '/', function($req, $res) {
-  $res->send("{$req->method} request on (/) homepage");
+    $res->send("{$req->method} request on (/) homepage");
 });
 ```
 
 Respond to all http methods from `route(/)`:
 ```php
 $app->all('/', function($req, $res) {
-  $res->send("{$req->method} request on (/) homepage");
+    $res->send("{$req->method} request on (/) homepage");
 });
 ```
 
@@ -66,7 +66,7 @@ Unic framework support wide range of http methods like get, post, put, delete, p
 Route parameters are named URL segments that are used to capture the values specified at their position in the URL. 
 ```php
 $app->get('/hello/{name}', function($req, $res) {
-  $res->send("Hello, {$req->params->name}");
+    $res->send("Hello, {$req->params->name}");
 });
 ```
 ## Named Routes
@@ -74,12 +74,12 @@ $app->get('/hello/{name}', function($req, $res) {
 Named routes are used to generate the URLs for route by using unique name. We can specify a name for a route by chaining the name method on the route definition.
 ```php
 $app->get('/dashboard', function($req, $res) {
-  $res->send("Hello, {$req->params->name}");
+    $res->send("Hello, {$req->params->name}");
 })->name('home');
 ```
 Route name should be unique for each route.
 
-Generate url for route using named route.
+Generate route url using named route.
 ```html
 <a href="<?= route('home') ?>">Home Page</a>
 ```
@@ -91,13 +91,13 @@ Group all routes in single prefix.
 ```php
 // Group routes
 $app->group('/blog', function($router) {
-  $router->get('/', function($req, $res) {
-    $res->send('/blog');
-  });
+    $router->get('/', function($req, $res) {
+        $res->send('/blog');
+    });
 
-  $router->post('/create', function($req, $res) {
-    $res->send('/blog/create');
-  });
+    $router->post('/create', function($req, $res) {
+        $res->send('/blog/create');
+    });
 });
 ```
 
@@ -113,11 +113,11 @@ $app = new App();
 $router = new HttpRouter();
 
 $router->get('/', function($req, $res) {
-  $res->send('Ok');
+    $res->send('Ok');
 });
 
 $router->post('/create', function($req, $res) {
-  $res->send('Ok');
+    $res->send('Ok');
 });
 
 $app->use('/blog', $router);
