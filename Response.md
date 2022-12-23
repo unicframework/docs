@@ -8,7 +8,7 @@ Let's send a text format response.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->send('Hello, World!');
+    $res->send('Hello, World!');
 });
 ```
 
@@ -18,9 +18,9 @@ Let's send a json response.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->json([
-    'status' => 'Ok',
-  ]);
+    $res->json([
+        'status' => 'Ok',
+    ]);
 });
 ```
 
@@ -30,16 +30,16 @@ Let's set http status code to the response.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->send('Hello, World!', 200);
+    $res->send('Hello, World!', 200);
 });
 
 $app->get('/', function($req, $res) {
-  $res->status(200)->send('Hello, World!');
+    $res->status(200)->send('Hello, World!');
 });
 
 $app->get('/', function($req, $res) {
-  // Send only http status code
-  $res->sendStatus(200);
+    // Send only http status code
+    $res->sendStatus(200);
 });
 ```
 
@@ -49,18 +49,18 @@ Let's set http header to the response.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->header('Content-Type', 'text/html')->send('Hello, World!');
+    $res->header('Content-Type', 'text/html')->send('Hello, World!');
 });
 
 $app->get('/', function($req, $res) {
-  $res->header([
-    'Content-Type' => 'text/html'
-  ])->send('Hello, World!');
+    $res->header([
+        'Content-Type' => 'text/html'
+    ])->send('Hello, World!');
 });
 
 $app->get('/', function($req, $res) {
-  $res->header('Content-Type', 'text/html');
-  $res->send('Hello, World!');
+    $res->header('Content-Type', 'text/html');
+    $res->send('Hello, World!');
 });
 ```
 
@@ -70,18 +70,18 @@ Let's remove http header from the response.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->removeHeader('Content-Type', 'text/html')->send('Hello, World!');
+    $res->removeHeader('Content-Type', 'text/html')->send('Hello, World!');
 });
 
 $app->get('/', function($req, $res) {
-  $res->removeHeader([
-    'Content-Type' => 'text/html'
-  ])->send('Hello, World!');
+    $res->removeHeader([
+        'Content-Type' => 'text/html'
+    ])->send('Hello, World!');
 });
 
 $app->get('/', function($req, $res) {
-  $res->removeHeader('Content-Type', 'text/html');
-  $res->send('Hello, World!');
+    $res->removeHeader('Content-Type', 'text/html');
+    $res->send('Hello, World!');
 });
 ```
 
@@ -91,12 +91,12 @@ Let's send file as a response.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->file('/cat-image.png');
+    $res->file('/cat-image.png');
 });
 
 $app->get('/', function($req, $res) {
-  // Set file mime type
-  $res->file('/cat-image.png', 'image/png');
+    // Set file mime type
+    $res->file('/cat-image.png', 'image/png');
 });
 ```
 
@@ -106,12 +106,12 @@ Let's download file from response.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->sendFile('/cat-image.png');
+    $res->sendFile('/cat-image.png');
 });
 
 $app->get('/', function($req, $res) {
-  // Set custom file name
-  $res->sendFile('/cat-image.png', 'not-cat-image.png');
+    // Set custom file name
+    $res->sendFile('/cat-image.png', 'not-cat-image.png');
 });
 ```
 
@@ -121,10 +121,10 @@ Let's redirect to another url.
 
 ```php
 $app->get('/', function($req, $res) {
-  $res->redirect('http://example.com');
+    $res->redirect('http://example.com');
 });
 
 $app->get('/', function($req, $res) {
-  $res->redirect('http://example.com', 302);
+    $res->redirect('http://example.com', 302);
 });
 ```
