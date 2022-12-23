@@ -22,14 +22,14 @@ Types of middlewares in unic framework:
 
 ```php
 $app->use(function($req, $res, $next) {
-  $req->counter = 0;
-  // Calls the next middleware
-  $next();
+    $req->counter = 0;
+    // Call next middleware
+    $next();
 });
 
 $app->use(function($req, $res, $next) {
-  $req->counter++;
-  $next();
+    $req->counter++;
+    $next();
 });
 ```
 
@@ -39,11 +39,11 @@ $app->use(function($req, $res, $next) {
 
 ```php
 $app->get('/', function($req, $res, $next) {
-  $req->counter = 0;
-  // Calls the next middleware
-  $next();
+    $req->counter = 0;
+    // Calls next middleware
+    $next();
 }, function($req, $res) {
-  $res->send("Counter is {$req->counter}");
+    $res->send("Counter is {$req->counter}");
 });
 ```
 
@@ -56,7 +56,7 @@ $app->get('/', function($req, $res, $next) {
 
 ```php
 $app->use(function($err, $req, $res, $next) {
-  $res->send('Internal Server Error', 500);
+    $res->send('Internal Server Error', 500);
 });
 ```
 
@@ -64,10 +64,10 @@ $app->use(function($err, $req, $res, $next) {
 
 ```php
 $app->get('/', function($req, $res) {
-  $next('error');
+    $next('error');
 });
 
 $app->use(function($err, $req, $res, $next) {
-  $res->send('Internal Server Error', 500);
+    $res->send('Internal Server Error', 500);
 });
 ```
