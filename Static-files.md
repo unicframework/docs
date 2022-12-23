@@ -15,12 +15,12 @@ Generate static files url in templates.
 <!DOCTYPE>
 <html>
 <head>
-  <title>cat image</title>
+    <title>cat image</title>
 </head>
 <body>
-  <img src="<?= asset('/img/cat.jpg'); ?>" alt="cat image"/>
+    <img src="<?= asset('/img/cat.jpg'); ?>" alt="cat image"/>
 </body>
 </html>
 ```
 
-The `asset()` function return full URL for the given static files.
+The `asset()` function generate full URL for static files.
