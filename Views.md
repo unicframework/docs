@@ -7,9 +7,11 @@ Let's set the default view directory path:
 $app->set('views', base_path('views'));
 ```
 
-Let's set the view engine:
+Let's set the view engine and configuration options:
 ```php
-$app->set('view_engine', 'twig');
+$app->set('view_engine', 'twig', [
+    'cache' => false
+]);
 ```
 
 Now let's create a view file `index.twig` inside the views directory:
