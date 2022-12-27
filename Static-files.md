@@ -6,7 +6,9 @@
 use Unic\App;
 
 $app = new App();
-$app->static('/public', base_path('/public'));
+
+// Set public path
+$app->use($app->static('/public', base_path('/public')));
 ```
 
 Generate static files url in templates.
