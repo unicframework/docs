@@ -1,6 +1,6 @@
 ## Installation
 
-  Unic framework is built for PHP, so it's requires PHP 5.6 or newer version and for now you won’t need to setup anything else.
+  Unic framework is built for PHP, so it's requires PHP 7.4 or newer version and for now you won’t need to setup anything else.
 
 ### Install with composer
 
@@ -11,3 +11,13 @@ composer create-project unicframework/unic blog
 ```
 
   It will automatically create a `blog` project for you.
+
+### Start development server
+
+  Start php development server to run run the unic application.
+
+```shell
+php -S localhost:3000 index.php
+```
+
+It will the the development server at [http://localhost:3000](http://localhost:3000)
