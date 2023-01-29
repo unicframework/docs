@@ -14,10 +14,10 @@ composer create-project unicframework/unic blog
 
 ### Start development server
 
-  Start php development server to run run the unic application.
+  Start php development server:
 
 ```shell
 php -S localhost:3000 index.php
 ```
 
-It will the the development server at [http://localhost:3000](http://localhost:3000)
+It will start the development server at [http://localhost:3000](http://localhost:3000)
