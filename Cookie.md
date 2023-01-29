@@ -7,22 +7,29 @@
 Create a new cookie:
 
 ```php
-// Create new cookie
-$req->cookies->set('email', 'example@gmail.com', time()+(60*30), '/');
+$app->get('/', function($req, $res) {
+    // Create new cookie
+    $res->cookie('email', 'example@gmail.com', [
+        'expire' => time()+(60*30),
+        'path' => '/',
+    ]);
+});
 ```
 
 Get the cookie data:
 
 ```php
-// Get cookie data
-$req->cookies->get('email');
+$app->get('/', function($req, $res) {
+    // Get cookie data
+    $req->cookie('email');
+});
 ```
 
 Check cookie data exists or not:
 
 ```php
 // Check cookie exists or not
-if($req->cookies->has('email')) {
+if($req->cookie('email') !== null) {
     // Cookie exists
 } else {
     // Cookie not exists
@@ -33,5 +40,5 @@ Delete the cookie:
 
 ```php
 // Delete cookie
-$req->cookies->delete('email');
+$req->removeCookie('email');
 ```
