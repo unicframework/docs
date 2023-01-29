@@ -12,7 +12,7 @@ $app->get('/', function($req, $res) {
     $res->cookie('email', 'example@gmail.com', [
         'expire' => time()+(60*30),
         'path' => '/',
-    ]);
+    ])->send('Set cookie');
 });
 ```
 
@@ -39,6 +39,8 @@ if($req->cookie('email') !== null) {
 Delete the cookie:
 
 ```php
-// Delete cookie
-$req->removeCookie('email');
+$app->get('/', function($req, $res) {
+    // Remove cookie
+    $res->removeCookie('email')->send('Cookie removed');
+});
 ```
