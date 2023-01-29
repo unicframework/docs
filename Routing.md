@@ -80,9 +80,12 @@ $app->get('/dashboard', function($req, $res) {
 Route name should be unique for each route.
 
 Generate route url using named route.
-```html
-<a href="<?= route('home') ?>">Home Page</a>
+```php
+$app->get('/', function($req, $res) {
+  $res->redirect($req->app->route('home'));
+});
 ```
+It will redirect to `/dashboard` route.
 
 ## Group Routes
 
