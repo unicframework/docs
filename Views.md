@@ -4,7 +4,7 @@ Unic framework support multiple view engine like php, twig etc.
 
 Let's set the default view directory path:
 ```php
-$app->set('views', base_path('views'));
+$app->set('views', __DIR__ . '/views'));
 ```
 
 Let's set the view engine and configuration options:
