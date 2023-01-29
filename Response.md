@@ -1,6 +1,6 @@
 ## Response
 
-An HTTP response consists of a header and optional body, header contains metadata about body and body contains data.
+An HTTP response consists of a header and optional body, header contains metadata about body and body contains the actual data.
 
 ## String Response
 
@@ -70,17 +70,17 @@ Let's remove http header from the response.
 
 ```php
 $app->get('/', function($req, $res) {
-    $res->removeHeader('Content-Type', 'text/html')->send('Hello, World!');
+    $res->removeHeader('Content-Type')->send('Hello, World!');
 });
 
 $app->get('/', function($req, $res) {
     $res->removeHeader([
-        'Content-Type' => 'text/html'
+        'Content-Type',
     ])->send('Hello, World!');
 });
 
 $app->get('/', function($req, $res) {
-    $res->removeHeader('Content-Type', 'text/html');
+    $res->removeHeader('Content-Type');
     $res->send('Hello, World!');
 });
 ```
@@ -91,12 +91,12 @@ Let's send file as a response.
 
 ```php
 $app->get('/', function($req, $res) {
-    $res->file('/cat-image.png');
+    $res->file('path/to/cat-image.png');
 });
 
 $app->get('/', function($req, $res) {
     // Set file mime type
-    $res->file('/cat-image.png', 'image/png');
+    $res->file('path/to/cat-image.png', 'image/png');
 });
 ```
 
@@ -106,12 +106,12 @@ Let's download file from response.
 
 ```php
 $app->get('/', function($req, $res) {
-    $res->sendFile('/cat-image.png');
+    $res->download('path/to/cat-image.png');
 });
 
 $app->get('/', function($req, $res) {
     // Set custom file name
-    $res->sendFile('/cat-image.png', 'not-cat-image.png');
+    $res->download('path/to/cat-image.png', 'not-cat-image.png');
 });
 ```
 
