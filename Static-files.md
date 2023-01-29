@@ -8,21 +8,16 @@ use Unic\App;
 $app = new App();
 
 // Set public path
-$app->use($app->static('/public', base_path('/public')));
+$app->use($app->static('/public', __DIR__ . '/public'));
 ```
 
 Generate static files url in templates.
 
-```html
-<!DOCTYPE>
-<html>
-<head>
-    <title>cat image</title>
-</head>
-<body>
-    <img src="<?= asset('/img/cat.jpg'); ?>" alt="cat image"/>
-</body>
-</html>
+```php
+$app->get('/', function($req, $res) {
+    // Generate url of static files based on public path
+    $req->app->asset('/path/to/cat.png');
+});
 ```
 
-The `asset()` function generate full URL for static files.
+The `$req->app->asset()` function generate full URL for static files.
