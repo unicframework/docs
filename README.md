@@ -49,6 +49,37 @@ $app->get('/api', function($req, $res) {
 $app->start();
 ```
 
+## OpenSwoole Example
+
+  A simple `Hello, World` web application in unic framework using [OpenSwoole](https://openswoole.com) server.
+
+```php
+use Unic\App;
+use OpenSwoole\Http\Server;
+
+$app = new App();
+$server = new Server("127.0.0.1", 3000);
+
+$app->get('/', function($req, $res) {
+    $res->send('Hello, World!');
+});
+
+$app->get('/api', function($req, $res) {
+    $res->json([
+        'status' => 'Ok',
+    ]);
+});
+
+$app->useOpenSwooleServer($server);
+$app->start();
+```
+
+Run OpenSwoole app:
+```shell
+php server.php
+```
+
+It start openswoole server at [localhost](http://localhost:3000)
 ## License
 
   [MIT License](https://github.com/unicframework/unic/blob/main/LICENSE)
