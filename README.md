@@ -79,7 +79,7 @@ Run OpenSwoole app:
 php server.php
 ```
 
-It start openswoole server at [localhost](http://localhost:3000)
+It will start openswoole server at [localhost](http://localhost:3000)
 ## License
 
   [MIT License](https://github.com/unicframework/unic/blob/main/LICENSE)
