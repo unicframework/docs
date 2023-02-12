@@ -1,6 +1,6 @@
 ## Middleware
 
-  A Middleware is a small piece of code that is used to alter web application `request/response` cycle, middleware function has access of request, response object and next middleware function in reques/response cycle. 
+  A Middleware is a small piece of code that is used to alter web application `request/response` cycle, middleware function has access of request, response object and next middleware function in request/response cycle. 
   Middlewares are the building block of unic framework.
 
 Middleware functions can be used to perform following tasks:
